@@ -1,1 +1,2 @@
-# Serverless-A3
+<h2>Serverless-A3</h2>
+<p>The abstractive task in this assignment is to upload the text files on AWS S3 with delay of 100 ms using a script and trigger 1st Lambda function 'extractFeatures' as the files are uploaded. The lambda function will extract name entities and save in a Json file in another bucket. When file is uploaded on 2nd bucket, 2nd lambda function 'accessDB' will be triggered which will store the data to AWS RDS (MySQL database).
