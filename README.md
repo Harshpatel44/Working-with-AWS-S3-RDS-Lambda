@@ -11,7 +11,7 @@
 <p>Before I was downloading and fetching the nltk packages from '/tmp' directory, but the problem is that it downloads the packages everytime the function is called which leads to request timeout (which is only 3 seconds) and whole function doesnt get executed. Hence I downloaded the nltk packages locally in nltk_data folder, uploaded to s3 bucket as a zip and created a layer from that. Then in the lambda function I specified the custom path to look for those path 'nltk.data.path.append('opt/nltk_data'). The reason I look in opt folder is that all the layer zip files are located in that directory. So this is a better solution.</p>
 <p>As using lambda functions and installing additional packages doesnt seem easy on the website, I started using aws cli.</p>
 <p>I updated the timeout and memory size of the function using cli command-> 'aws update-function-configuration --function-name extractFeatures --timeout'
-
+<p>The lambda function is sending JSON file to another bucket. What we need to do now is trigger another lambda function on bucket 'tagsb00845449' when objects are created or uploaded. the lambda function will fetch the JSON file and save it to RDS MYSQL database.</p>
 
 
 
