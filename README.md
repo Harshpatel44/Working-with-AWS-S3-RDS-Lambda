@@ -8,9 +8,13 @@
 <p> There were some packages we need to download for nltk like 'punkt', but downloading from default nltk directory is not possible here. Hence we define where to download and fetch it in the lambda function. After downloading it to the cwd, fetching it gives OS error as the package is only read only system. Hence we need to download the package in '/tmp' directory.</p>
 <p>I created a dictionary from the tokenized words after removing stop words and stemming.</p>
 <p>I created another python file 'S3APi' which contains functions to list the buckets and to upload a file to them. Now the task is to send the dictionary as JSON file to another bucket 'tagsb00845449'.</p>
-<p></p>
-
+<p>Before I was downloading and fetching the nltk packages from '/tmp' directory, but the problem is that it downloads the packages everytime the function is called which leads to request timeout (which is only 3 seconds) and whole function doesnt get executed. Hence I downloaded the nltk packages locally in nltk_data folder, uploaded to s3 bucket as a zip and created a layer from that. Then in the lambda function I specified the custom path to look for those path 'nltk.data.path.append('opt/nltk_data'). The reason I look in opt folder is that all the layer zip files are located in that directory. So this is a better solution.</p>
 <p>As using lambda functions and installing additional packages doesnt seem easy on the website, I started using aws cli.</p>
+<p>I updated the timeout and memory size of the function using cli command-> 'aws update-function-configuration --function-name extractFeatures --timeout'
+
+
+
+
 <h2> References </h2>
 <p>https://www.youtube.com/watch?v=EsqjHDpLpB4</p>
 <p>https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</p>
