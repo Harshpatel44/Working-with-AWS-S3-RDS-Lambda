@@ -7,8 +7,12 @@
 <p>To extract named entities, I need to use nltk python module, so I uploaded the module in the lambda file directory in a zip file. If the size is above 10 MB, then we must use AWS S3.</p>
 <p> There were some packages we need to download for nltk like 'punkt', but downloading from default nltk directory is not possible here. Hence we define where to download and fetch it in the lambda function. After downloading it to the cwd, fetching it gives OS error as the package is only read only system. Hence we need to download the package in '/tmp' directory.</p>
 <p>I created a dictionary from the tokenized words after removing stop words and stemming.</p>
-  
+<p>I created another python file 'S3APi' which contains functions to list the buckets and to upload a file to them. Now the task is to send the dictionary as JSON file to another bucket 'tagsb00845449'.</p>
+<p></p>
+
+<p>As using lambda functions and installing additional packages doesnt seem easy on the website, I started using aws cli.</p>
 <h2> References </h2>
 <p>https://www.youtube.com/watch?v=EsqjHDpLpB4</p>
 <p>https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</p>
 <p>https://www.youtube.com/watch?v=vXiZO1c5Sk0</p>
+<p>https://www.programcreek.com/python/example/91258/nltk.ne_chunk</p>
