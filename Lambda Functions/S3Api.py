@@ -1,7 +1,4 @@
 import boto3
-import time
-import glob
-
 class s3Api:
     """ Get name of the buckets """
     def listBuckets(self):
@@ -13,9 +10,3 @@ class s3Api:
         s3Resource = boto3.resource('s3')
         s3Resource.Object(bucket_name, source_file_name).upload_file(Filename=file_name)
         print('file uploaded')
-
-s3 = s3Api()
-s3.fileUpload("sample-data-b00845449",'441.txt', 'tech/402.txt')
-time.sleep(0.1)
-print('Upload Successful')
-

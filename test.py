@@ -3,7 +3,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 
-file = open("tech/001.txt","r")
+file = open("tech/402.txt","r")
 
 ps = PorterStemmer()
 dictionary={}
