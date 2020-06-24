@@ -25,4 +25,4 @@ def extractFeatures(event,context):
         print(dictionary)
 
         s3 = S3Api.s3Api()
-        s3.sendJSONObject("tagsb00845449", file_name, {str(file_name.split('.')[0]) + 'ne': dictionary})
+        s3.sendJSONObject("tagsb00845449", file_name.split('.')[0]) + 'ne', {str(file_name.split('.')[0]) + 'ne': dictionary})

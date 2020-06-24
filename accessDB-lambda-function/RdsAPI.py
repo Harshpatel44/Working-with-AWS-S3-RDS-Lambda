@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 class RdsApi:
     def connectRDS(self, host, database, user, password):
         return mysql.connector.connect(
@@ -18,9 +17,9 @@ class RdsApi:
         object.commit()
         cur.close()
         object.close()
-        print("Row added for {0}".format(ne))
+        print("Row added for entity {0}".format(ne))
 
-    def checkNameExist(self, ne):
+    def checkNameExist(self,ne):
         object = self.connectRDS("serverless-a3.cdvxuztseuhu.us-east-1.rds.amazonaws.com", "serverless-a3", "admin",
                                  "amazonrds")
         cur = object.cursor()
@@ -36,13 +35,13 @@ class RdsApi:
             cur.close()
             object.close()
 
-    def updateName(self, ne, frequency):
+    def updateName(self,ne,frequency):
         object = self.connectRDS("serverless-a3.cdvxuztseuhu.us-east-1.rds.amazonaws.com", "serverless-a3", "admin",
                                  "amazonrds")
         cur = object.cursor()
-        query = 'update NamedEntities set Frequency = "{0}" where NamedEntity = "{1}";'.format(frequency, ne)
+        query = 'update NamedEntities set Frequency = "{0}" where NamedEntity = "{1}";'.format(frequency,ne)
         cur.execute(query)
         object.commit()
         cur.close()
         object.close()
-        print("Table Updated for {0}".format(ne))
+        print("Table Updated for entity {0}".format(ne))
