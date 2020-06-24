@@ -15,8 +15,7 @@ class s3Api:
         print('file uploaded')
 
 s3 = s3Api()
-for i in glob.glob('tech/*.txt'):
-    s3.fileUpload("sample-data-b00845449", i, i)
-    time.sleep(0.1)
+s3.fileUpload("sample-data-b00845449",'437.txt', 'tech/402.txt')
+time.sleep(0.1)
 print('Upload Successful')
 
