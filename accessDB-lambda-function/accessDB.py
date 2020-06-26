@@ -13,7 +13,7 @@ def lambda_handler(event, context):
         print(dictionary)
         api = RdsApi()
         for i in dictionary.keys():
-            current_frequency=api.checkNameExist('harsh')
+            current_frequency=api.checkNameExist(i)
             if(current_frequency==0):
                 api.addData(i,dictionary[i])
             else:

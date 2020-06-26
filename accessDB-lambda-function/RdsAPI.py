@@ -23,10 +23,10 @@ class RdsApi:
         object = self.connectRDS("serverless-a3.cdvxuztseuhu.us-east-1.rds.amazonaws.com", "serverless-a3", "admin",
                                  "amazonrds")
         cur = object.cursor()
-        query = 'select * from NamedEntities where NamedEntity = "{0}";'.format(str(ne))
+        query = 'select Frequency from NamedEntities where NamedEntity = "{0}";'.format(str(ne))
         cur.execute(query)
         try:
-            return cur.fetchall()[0][1]
+            return cur.fetchone()[0]
         except Exception as e:
             print(e)
             return 0
