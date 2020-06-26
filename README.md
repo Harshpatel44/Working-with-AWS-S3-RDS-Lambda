@@ -12,9 +12,8 @@
 <p>As using lambda functions and installing additional packages doesnt seem easy on the website, I started using aws cli.</p>
 <p>I updated the timeout and memory size of the function using cli command-> 'aws update-function-configuration --function-name extractFeatures --timeout'
 <p>The lambda function is sending JSON file to another bucket. What we need to do now is trigger another lambda function on bucket 'tagsb00845449' when objects are created or uploaded. the lambda function will fetch the JSON file and save it to RDS MYSQL database.</p>
-
-
-
+<p>A new lambda function is created which triggers tagsb00845449 bucket, fetches all the objects put in the bucket and extract entities from it. All these entities are stored with their respective frequencies in AWS RDS MYSQL database. If the entities are already present, the frequency is updated.</p>
+<p>----->Finish<-----</p>
 <h2> References </h2>
 <p>https://www.youtube.com/watch?v=EsqjHDpLpB4</p>
 <p>https://docs.aws.amazon.com/lambda/latest/dg/welcome.html</p>
